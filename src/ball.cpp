@@ -9,12 +9,13 @@ Ball::Ball()
     xDir = xDir == 0 ? 1 : -1;
     yDir = yDir == 0 ? 1 : -1;
     speed.set(5 * xDir, 3 * yDir);
-    radius = 10;
+    radius = 15;
 }
 
 void Ball::Draw()
 {
-    DrawCircle(pos.x, pos.y, radius, WHITE);
+    DrawCircle(pos.x, pos.y, radius, YELLOW);
+    DrawCircleLines(pos.x, pos.y, radius, WHITE);
 }
 
 int Ball::Update()

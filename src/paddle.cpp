@@ -1,18 +1,10 @@
 #include "paddle.h"
 #include <raylib.h>
 
-Paddle::Paddle()
-{
-    width = 20;
-    height = 100;
-    pos.set(10, (GetScreenHeight() / 2) - (height / 2));
-    speed = 4;
-}
-
-Paddle::Paddle(int player)
+Paddle::Paddle(int player = 0)
 {
     speed = 4;
-    width = 20;
+    width = 25;
     height = 100;
     controls = Controls(player);
     if (player == 1)
@@ -24,7 +16,7 @@ Paddle::Paddle(int player)
 
 void Paddle::Draw()
 {
-    DrawRectangleRounded(Rectangle{float(pos.x), float(pos.y), float(width), float(height)}, 5, 6, WHITE);
+    DrawRectangleRounded(Rectangle{float(pos.x), float(pos.y), float(width), float(height)}, 0.8, 0, WHITE);
 }
 
 void Paddle::Update()
