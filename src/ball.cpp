@@ -4,7 +4,11 @@
 Ball::Ball()
 {
     pos.set(600, 300);
-    speed.set(5, -3);
+    int xDir = GetRandomValue(0, 1);
+    int yDir = GetRandomValue(0, 1);
+    xDir = xDir == 0 ? 1 : -1;
+    yDir = yDir == 0 ? 1 : -1;
+    speed.set(5 * xDir, 3 * yDir);
     radius = 10;
 }
 

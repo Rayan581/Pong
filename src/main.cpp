@@ -1,6 +1,5 @@
 #include <raylib.h>
-#include "ball.h"
-#include "paddle.h"
+#include "game.h"
 
 int SCREEN_WIDTH = 1200;
 int SCREEN_HEIGHT = 600;
@@ -10,31 +9,26 @@ int main()
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Pongo");
     SetTargetFPS(60);
 
-    Ball ball;
-    Paddle paddle1(1);
-    Paddle paddle2(2);
+    Game game;
 
     // Game Loop
     while (WindowShouldClose() == false)
     {
         // Event Handling
+        if(IsKeyPressed(KEY_ENTER))
+            game.Reset();
 
         // Updating Positions
-        ball.Update();
-        paddle1.Update();
-        paddle2.Update();
+        game.Update();
 
         // Checking collisions
-        ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions());
-        ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions());
+        game.CheckCollisions();
 
         // Drawing
         BeginDrawing();
         ClearBackground(BLACK);
 
-        ball.Draw();
-        paddle1.Draw();
-        paddle2.Draw();
+        game.Draw();
 
         EndDrawing();
     }

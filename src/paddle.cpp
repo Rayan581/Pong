@@ -24,7 +24,7 @@ Paddle::Paddle(int player)
 
 void Paddle::Draw()
 {
-    DrawRectangle(pos.x, pos.y, width, height, WHITE);
+    DrawRectangleRounded(Rectangle{float(pos.x), float(pos.y), float(width), float(height)}, 5, 6, WHITE);
 }
 
 void Paddle::Update()
