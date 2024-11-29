@@ -15,13 +15,13 @@ private:
         {
             if (player == 1)
             {
-                upKey = KEY_UP;
-                downKey = KEY_DOWN;
+                upKey = KEY_W;
+                downKey = KEY_S;
             }
             else if (player == 2)
             {
-                upKey = KEY_W;
-                downKey = KEY_S;
+                upKey = KEY_UP;
+                downKey = KEY_DOWN;
             }
         }
     };
@@ -39,4 +39,6 @@ public:
     void Update();
     void MoveUp();
     void MoveDown();
+    Position GetPosition();
+    Position GetDimensions();
 };

@@ -17,14 +17,18 @@ int main()
     // Game Loop
     while (WindowShouldClose() == false)
     {
-        // 1. Event Handling
+        // Event Handling
 
-        // 2. Updating Positions
+        // Updating Positions
         ball.Update();
         paddle1.Update();
         paddle2.Update();
 
-        // 3. Drawing
+        // Checking collisions
+        ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions());
+        ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions());
+
+        // Drawing
         BeginDrawing();
         ClearBackground(BLACK);
 

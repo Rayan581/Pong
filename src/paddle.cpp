@@ -48,3 +48,13 @@ void Paddle::MoveDown()
     if (pos.y + height >= GetScreenHeight())
         pos.y = GetScreenHeight() - height;
 }
+
+Position Paddle::GetPosition()
+{
+    return pos;
+}
+
+Position Paddle::GetDimensions()
+{
+    return Position(width, height);
+}

@@ -18,8 +18,12 @@ void Ball::Update()
     pos += speed;
 
     // Bounce off the edges of the screen
-    if (pos.x - radius <= 0 || pos.x + radius >= 1200)
-        speed.x *= -1;
     if (pos.y - radius <= 0 || pos.y + radius >= 600)
         speed.y *= -1;
+}
+
+void Ball::CollisionWithPaddle(Position paddlePos, Position paddleDim)
+{
+    if (pos.x + radius >= paddlePos.x && pos.x - radius <= paddlePos.x + paddleDim.x && pos.y + radius >= paddlePos.y && pos.y - radius <= paddlePos.y + paddleDim.y)
+        speed.x *= -1;
 }
