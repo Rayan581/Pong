@@ -17,8 +17,8 @@ void Game::Draw()
 
 void Game::CheckCollisions()
 {
-    ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions());
-    ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions());
+    ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions(), 5);
+    ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions(), -5);
 }
 
 void Game::Reset()

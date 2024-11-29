@@ -12,5 +12,5 @@ public:
     Ball();
     void Draw();
     void Update();
-    void CollisionWithPaddle(Position paddlePos, Position paddleDim);
+    void CollisionWithPaddle(Position paddlePos, Position paddleDim, int xDir);
 };

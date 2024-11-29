@@ -26,8 +26,8 @@ void Ball::Update()
         speed.y *= -1;
 }
 
-void Ball::CollisionWithPaddle(Position paddlePos, Position paddleDim)
+void Ball::CollisionWithPaddle(Position paddlePos, Position paddleDim, int xDir)
 {
     if (pos.x + radius >= paddlePos.x && pos.x - radius <= paddlePos.x + paddleDim.x && pos.y + radius >= paddlePos.y && pos.y - radius <= paddlePos.y + paddleDim.y)
-        speed.x *= -1;
+        speed.x = xDir;
 }
