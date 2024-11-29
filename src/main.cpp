@@ -15,7 +15,7 @@ int main()
     while (WindowShouldClose() == false)
     {
         // Event Handling
-        if(IsKeyPressed(KEY_ENTER))
+        if (IsKeyPressed(KEY_ENTER))
             game.Reset();
 
         // Updating Positions
@@ -28,7 +28,10 @@ int main()
         BeginDrawing();
         ClearBackground(BLACK);
 
+        DrawLine(GetScreenWidth() / 2, 0, GetScreenWidth() / 2, GetScreenHeight(), WHITE);
+        DrawCircleLines(GetScreenWidth() / 2, GetScreenHeight() / 2, 200, WHITE);
         game.Draw();
+        game.DisplayScore();
 
         EndDrawing();
     }

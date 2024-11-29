@@ -11,6 +11,6 @@ private:
 public:
     Ball();
     void Draw();
-    void Update();
+    int Update();
     void CollisionWithPaddle(Position paddlePos, Position paddleDim, int xDir);
 };

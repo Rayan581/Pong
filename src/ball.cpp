@@ -17,13 +17,20 @@ void Ball::Draw()
     DrawCircle(pos.x, pos.y, radius, WHITE);
 }
 
-void Ball::Update()
+int Ball::Update()
 {
     pos += speed;
 
     // Bounce off the edges of the screen
-    if (pos.y - radius <= 0 || pos.y + radius >= 600)
+    if (pos.y - radius <= 0 || pos.y + radius >= GetScreenHeight())
         speed.y *= -1;
+
+    if (pos.x + radius >= GetScreenWidth())
+        return 0;
+    if (pos.x - radius <= 0)
+        return 1;
+
+    return -1;
 }
 
 void Ball::CollisionWithPaddle(Position paddlePos, Position paddleDim, int xDir)
