@@ -12,10 +12,13 @@ private:
     int playerTwoScore;
 
 public:
-    Game() : ball(), paddle1(1), paddle2(2), playerOneScore(0), playerTwoScore(0) {}
+    bool isRunning;
+    bool isGameOver;
+    Game() : ball(), paddle1(1), paddle2(2), playerOneScore(0), playerTwoScore(0), isGameOver(false) {}
     void Update();
     void Draw();
     void CheckCollisions();
     void Reset();
     void DisplayScore();
+    void DisplayWinner();
 };
