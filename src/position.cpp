@@ -42,3 +42,8 @@ Position Position::operator-=(const Position &other)
 {
     return *this = *this - other;
 }
+
+Position Position::operator*(const Position &other) const
+{
+    return Position(x * other.x, y * other.y);
+}

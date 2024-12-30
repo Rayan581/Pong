@@ -6,6 +6,7 @@ class Ball
 private:
     Position pos;
     Position speed;
+    Position direction;
     int radius;
 
 public:
@@ -13,4 +14,5 @@ public:
     void Draw();
     int Update();
     void CollisionWithPaddle(Position paddlePos, Position paddleDim, int xDir);
+    void IncrementSpeed();
 };

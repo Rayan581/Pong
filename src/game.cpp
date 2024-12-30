@@ -18,7 +18,7 @@ void Game::Update()
         isRunning = false;
     }
 
-    if (playerOneScore >= 2 || playerTwoScore >= 2)
+    if (playerOneScore >= GAMEWINSCORE || playerTwoScore >= GAMEWINSCORE)
     {
         isRunning = false;
         isGameOver = true;
@@ -30,6 +30,15 @@ void Game::Update()
 
     paddle1.Update();
     paddle2.Update();
+
+    int timeElapsed = GetTime() - inningsTime;
+    if (timeElapsed != 0 && timeElapsed % SPEEDINCREMENTTIME == 0 && !increased)
+    {
+        ball.IncrementSpeed();
+        increased = true;
+    }
+    else if(timeElapsed % SPEEDINCREMENTTIME != 0)
+        increased = false;
 }
 
 void Game::Draw()
@@ -41,8 +50,8 @@ void Game::Draw()
 
 void Game::CheckCollisions()
 {
-    ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions(), 5);
-    ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions(), -5);
+    ball.CollisionWithPaddle(paddle1.GetPosition(), paddle1.GetDimensions(), 1);
+    ball.CollisionWithPaddle(paddle2.GetPosition(), paddle2.GetDimensions(), -1);
 }
 
 void Game::Reset()
@@ -50,6 +59,7 @@ void Game::Reset()
     ball = Ball();
     paddle1 = Paddle(1);
     paddle2 = Paddle(2);
+    inningsTime = GetTime();
 }
 
 void Game::DisplayScore()
@@ -71,4 +81,12 @@ void Game::DisplayWinner()
         isRunning = true;
         isGameOver = false;
     }
+}
+
+void Game::DrawBackground()
+{
+    DrawRectangle(0, 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT, MINT_GREEN);
+    DrawCircle(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 150, LIGHT_GREEN);
+    DrawCircleLines(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 150, SOFT_WHITE);
+    DrawLine(SCREEN_WIDTH / 2, 0, SCREEN_WIDTH / 2, SCREEN_HEIGHT, SOFT_WHITE);
 }

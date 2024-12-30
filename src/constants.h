@@ -3,6 +3,10 @@
 
 extern int SCREEN_WIDTH;
 extern int SCREEN_HEIGHT;
+extern int GAMEWINSCORE;
+extern int SPEEDINCREMENTTIME;
+extern int MAXBALLSPEEDX;
+extern int MAXBALLSPEEDY;
 
 extern Color LIGHT_GREEN;
 extern Color DARK_GREEN;

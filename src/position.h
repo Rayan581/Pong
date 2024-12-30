@@ -11,4 +11,5 @@ struct Position
     Position operator+=(const Position &other);
     Position operator-(const Position &other) const;
     Position operator-=(const Position &other);
+    Position operator*(const Position &other) const;
 };
